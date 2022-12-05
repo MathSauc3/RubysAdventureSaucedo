@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1343388826909963079}
   - component: {fileID: 1343388826909963080}
+  - component: {fileID: -4287903686925858640}
   m_Layer: 0
-  m_Name: DrainCover
+  m_Name: VentTransporterStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &-4287903686925858640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343388826909963081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fe9f0dd260adf4197145f550b74a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
