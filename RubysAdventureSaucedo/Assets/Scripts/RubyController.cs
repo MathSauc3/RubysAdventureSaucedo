@@ -25,7 +25,8 @@ public class RubyController : MonoBehaviour
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
 
-   
+    AudioSource audioSource;
+
     void Start()
     {
 
@@ -33,10 +34,14 @@ public class RubyController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         currentHealth = maxHealth;
-        
+
+        audioSource = GetComponent<AudioSource>();
     }
 
-
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot (clip);
+    }
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
@@ -114,6 +119,8 @@ public class RubyController : MonoBehaviour
         projectile.Launch(lookDirection, 300);
 
         animator.SetTrigger("Launch");
+
+        audioSource.PlayOneShot(clip);
     }
 
 

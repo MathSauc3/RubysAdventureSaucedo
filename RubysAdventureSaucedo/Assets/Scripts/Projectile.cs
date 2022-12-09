@@ -5,7 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
-    
+
+    public AudioClip ThrowCog;
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -15,6 +16,8 @@ public class Projectile : MonoBehaviour
     public void Launch(Vector2 direction, float force)
     {
         rigidbody2d.AddForce(direction * force);
+
+        controller.PlaySound(collectedClip);
     }
 
     void OnCollisionEnter2D(Collision2D other)
