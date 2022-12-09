@@ -22,7 +22,7 @@ public class RubyController : MonoBehaviour
     float horizontal;
     float vertical;
 
-    public Animator animator;
+    Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
 
    
@@ -33,7 +33,7 @@ public class RubyController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         currentHealth = maxHealth;
-        currentHealth = 5;
+        
     }
 
 
@@ -74,9 +74,8 @@ public class RubyController : MonoBehaviour
                 {
                     character.DisplayDialog();
                 }
-            }    
+            }
         }
-
     }
 
     public void FixedUpdate()
