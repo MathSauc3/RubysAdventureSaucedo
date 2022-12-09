@@ -9,12 +9,10 @@ public class RubyController : MonoBehaviour
 
     public int maxHealth = 5;
 
-   
+    public GameObject projectilePrefab;
 
     public int health { get { return currentHealth; } }
     int currentHealth;
-
-    public GameObject projectilePrefab;
 
     public float timeInvincible = 2.0f;
     bool isInvincible;
@@ -24,7 +22,7 @@ public class RubyController : MonoBehaviour
     float horizontal;
     float vertical;
 
-    Animator animator;
+    public Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
 
    
@@ -66,7 +64,18 @@ public class RubyController : MonoBehaviour
         {
             Launch();
         }
-
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                }
+            }    
+        }
 
     }
 
@@ -90,9 +99,12 @@ public class RubyController : MonoBehaviour
 
             isInvincible = true;
             invincibleTimer = timeInvincible;
+            animator.SetTrigger("Hit");
         }
+        
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     void Launch()
