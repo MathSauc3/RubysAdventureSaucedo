@@ -6,7 +6,6 @@ public class Projectile : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
 
-    public AudioClip ThrowCog;
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -17,7 +16,7 @@ public class Projectile : MonoBehaviour
     {
         rigidbody2d.AddForce(direction * force);
 
-        controller.PlaySound(collectedClip);
+       
     }
 
     void OnCollisionEnter2D(Collision2D other)
